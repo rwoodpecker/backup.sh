@@ -8,7 +8,7 @@ read_config() {
 
 backup() {
     read_config
-    restic backup ~/ --one-file-system --exclude=.restic/exclude
+    restic backup /path/to/dir1 /path/to/dir2 --limit-upload=1000 --exclude=/path/to/.restic/exclude --cache-dir=/path/to/.restic/cache/
     restic forget --hostname $HOSTNAME --keep-daily 7 --keep-weekly 5 --keep-monthly 6
 }
 
